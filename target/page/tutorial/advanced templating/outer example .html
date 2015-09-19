@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    #navigation .active {
+        text-decoration: underline;
+    }
+    .callout.info {
+        border-left-color: #31708f;
+    }
+    .callout.info h4 {
+        color: #31708f;
+    }
+    .callout.success {
+        border-left-color: #3c763d;
+    }
+    .callout.success h4{
+        color: #3c763d;
+    }
+    .callout.warning {
+      border-left-color: #8a6d3b;
+    }
+    .callout.warning h4{
+      color: #8a6d3b;
+    }
+    .callout.danger {
+      border-left-color: #a94442;
+    }
+    .callout.danger h4{
+      color: #a94442;
+    }
+    .callout {
+      padding: 20px;
+      margin: 20px 0;
+      border: 1px solid #eee;
+      border-left-width: 5px;
+      border-radius: 3px;
+    }
+    .hljs {
+       background-color:#f5f5f5; 
+    }
+    .tab-pane {
+        padding:10px;
+    }
+    .example {
+        margin-top:40px;
+        margin-bottom:40px;;
+    }
+    
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <h3>outer example </h3>
+        <p>
+            To have a common header and footer for a page you can use a template-ref with the property outer set to true. Uncheck the <b>general </b>value to see the effect of removing the outer. <div><br /></div><div>This can only be used once per page because the page's template is renamed to <i>inner</i> and rendered in the context of the referenced template as a partial. This limitation will be lifted soon.<div><br /></div><div>There for the outer template must include this snippet:</div><div><i><br /></i></div><div><i>..</i></div><div><i>{{#inner}}</i></div><div><i>  {{&gt;inner}}</i></div><div><i>{{/inner}} </i></div><div><i>..</i></div></div>
+        </p>
+        <hr/>
+        <div class="example">
+            Just some static text!        </div>
+    <div role="tabpanel">  
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#content" data-toggle="tab">render context</a></li>
+      <li role="presentation"><a href="#template" data-toggle="tab">templates</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="content">
+            <pre><code class="json">{
+ &quot;name&quot;: &quot;outer example &quot;,
+ &quot;index&quot;: 2,
+ &quot;template&quot;: &quot;outer-example&quot;,
+ &quot;path&quot;: &quot;/tutorial/advanced templating/outer example &quot;,
+ &quot;parent&quot;: &quot;/tutorial/advanced templating&quot;
+}</code></pre>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="template">
+            <pre><code class="handlebars">Just some static text!</code></pre>
+        </div>
+    </div>
+    </div>
+    
+    <nav>
+      <ul class="pager">
+            <li class="previous"><a href="/page/tutorial/advanced templating/embed a page as partial.html"><span aria-hidden="true">&larr;</span>embed a page as partial</a></li>
+            <li class="next"><a href="/page/tutorial/advanced templating/reuse content in templates.html">reuse content in templates <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+    
+        
+        
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="gform-app/controller/mock.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
+
