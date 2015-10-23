@@ -8,7 +8,7 @@
     <title></title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/oss/cms4apps-site/target/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,56 +17,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-    #navigation .active {
-        text-decoration: underline;
-    }
-    .callout.info {
-        border-left-color: #31708f;
-    }
-    .callout.info h4 {
-        color: #31708f;
-    }
-    .callout.success {
-        border-left-color: #3c763d;
-    }
-    .callout.success h4{
-        color: #3c763d;
-    }
-    .callout.warning {
-      border-left-color: #8a6d3b;
-    }
-    .callout.warning h4{
-      color: #8a6d3b;
-    }
-    .callout.danger {
-      border-left-color: #a94442;
-    }
-    .callout.danger h4{
-      color: #a94442;
-    }
-    .callout {
-      padding: 20px;
-      margin: 20px 0;
-      border: 1px solid #eee;
-      border-left-width: 5px;
-      border-radius: 3px;
-    }
-    .hljs {
-       background-color:#f5f5f5; 
-    }
-    .tab-pane {
-        padding:10px;
-    }
-    .example {
-        margin-top:40px;
-        margin-bottom:40px;;
-    }
-    
-    </style>
+    <link rel='stylesheet' href='/oss/cms4apps-site/target/assets/css/main.css'></style>
+
   </head>
   <body>
       <div class="container">
+                  <nav>
+                      <div class="navbar-center">
+                        <a class="link" href="/oss/cms4apps-site/target/tutorial/index.html">content</a>
+                      </div>
+      <ul class="pager">
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/advanced templating/embed a multi template.html"><span aria-hidden="true">&larr;</span>embed a multi template</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/advanced templating/query pages dynamically.html">query pages dynamically. <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
         <h3>lots of multi templates</h3>
         <p>
             To embed a dynamic number of content elements with different templates a <i>primitive array</i> of <i>multi-template-ref</i> is employed. <div><br /></div><div>The handlebars template iterates over the array an includes a dynamical partial. The name of the partial is looked up in the variable <i>__type__.</i><br /><div><br /></div><div><b>Layout</b></div><div>In this case the templates are all in a <i>verticalgroup</i> layout which means that their size needs to be defined by their container. Hence it is a good idea to use a tree container.</div></div>
@@ -92,57 +56,57 @@
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="content">
-            <pre><code class="json">{
+                <pre><code class="json">{
  &quot;embedded&quot;: [
   {
    &quot;level&quot;: &quot;danger&quot;,
    &quot;text&quot;: &quot;RED ALERT !!!&quot;,
-   &quot;__type__&quot;: &quot;/alert&quot;
+   &quot;__type__&quot;: &quot;/alert.json&quot;
   },
   {
    &quot;level&quot;: &quot;warning&quot;,
    &quot;headline&quot;: &quot;Hello&quot;,
    &quot;text&quot;: &quot;We are informing you with a callout.&quot;,
-   &quot;__type__&quot;: &quot;/callout&quot;
+   &quot;__type__&quot;: &quot;/callout.json&quot;
   },
   {
    &quot;text&quot;: &quot;Just some &lt;b&gt;content&lt;/b&gt;.&quot;,
-   &quot;__type__&quot;: &quot;/paragraph&quot;
+   &quot;__type__&quot;: &quot;/paragraph.json&quot;
   }
  ],
  &quot;name&quot;: &quot;lots of multi templates&quot;,
  &quot;index&quot;: 5,
- &quot;template&quot;: &quot;multi-array-template-example&quot;,
- &quot;path&quot;: &quot;/tutorial/advanced templating/lots of multi templates&quot;,
+ &quot;template&quot;: &quot;/multi-array-template-example.json&quot;,
+ &quot;path&quot;: &quot;/tutorial/advanced templating/lots of multi templates.json&quot;,
  &quot;parent&quot;: &quot;/tutorial/advanced templating&quot;
 }</code></pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="template">
-            <pre><code class="handlebars">&lt;ul&gt;
+            </div>
+            <div role="tabpanel" class="tab-pane" id="template">
+                <pre><code class="handlebars">&lt;ul&gt;
 {{#embedded}}
     &lt;li&gt;
     {{&gt; (lookup . &#x27;__type__&#x27;)}}
     &lt;/li&gt;
 {{/embedded}}
 &lt;/ul&gt;</code></pre>
-                    /alert 
-                    <pre><code class="handlebars">&lt;div class&#x3D;&quot;alert alert-{{level}}&quot;&gt;{{{text}}}&lt;/div&gt;</code></pre>
-                    /paragraph 
-                    <pre><code class="handlebars">&lt;h1&gt;{{{headline}}}&lt;/h1&gt;
+                        /alert.json 
+                        <pre><code class="handlebars">&lt;div class&#x3D;&quot;alert alert-{{level}}&quot;&gt;{{{text}}}&lt;/div&gt;</code></pre>
+                        /paragraph.json 
+                        <pre><code class="handlebars">&lt;h1&gt;{{{headline}}}&lt;/h1&gt;
 &lt;p&gt;{{{text}}}&lt;/p&gt;</code></pre>
-                    /callout 
-                    <pre><code class="handlebars">&lt;div class&#x3D;&quot;callout {{level}}&quot;&gt;
+                        /callout.json 
+                        <pre><code class="handlebars">&lt;div class&#x3D;&quot;callout {{level}}&quot;&gt;
     &lt;h4&gt;{{headline}}&lt;/h4&gt;
     &lt;p&gt;{{{text}}}&lt;/p&gt;
 &lt;/div&gt;</code></pre>
+            </div>
         </div>
-    </div>
     </div>
     
     <nav>
       <ul class="pager">
-            <li class="previous"><a href="/tutorial/advanced templating/embed a multi template.html"><span aria-hidden="true">&larr;</span>embed a multi template</a></li>
-            <li class="next"><a href="/tutorial/advanced templating/query pages dynamically..html">query pages dynamically. <span aria-hidden="true">&rarr;</span></a></li>
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/advanced templating/embed a multi template.html"><span aria-hidden="true">&larr;</span>embed a multi template</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/advanced templating/query pages dynamically.html">query pages dynamically. <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </nav>
     
@@ -151,10 +115,10 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="/oss/cms4apps-site/target/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/dist/js/bootstrap.js"></script>
-    <script src="gform-app/controller/mock.js"></script>
+    <script src="/oss/cms4apps-site/target/bootstrap/dist/js/bootstrap.js"></script>
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>

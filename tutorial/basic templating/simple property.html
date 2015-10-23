@@ -8,7 +8,7 @@
     <title></title>
 
     <!-- Bootstrap -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/oss/cms4apps-site/target/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -17,56 +17,20 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-    #navigation .active {
-        text-decoration: underline;
-    }
-    .callout.info {
-        border-left-color: #31708f;
-    }
-    .callout.info h4 {
-        color: #31708f;
-    }
-    .callout.success {
-        border-left-color: #3c763d;
-    }
-    .callout.success h4{
-        color: #3c763d;
-    }
-    .callout.warning {
-      border-left-color: #8a6d3b;
-    }
-    .callout.warning h4{
-      color: #8a6d3b;
-    }
-    .callout.danger {
-      border-left-color: #a94442;
-    }
-    .callout.danger h4{
-      color: #a94442;
-    }
-    .callout {
-      padding: 20px;
-      margin: 20px 0;
-      border: 1px solid #eee;
-      border-left-width: 5px;
-      border-radius: 3px;
-    }
-    .hljs {
-       background-color:#f5f5f5; 
-    }
-    .tab-pane {
-        padding:10px;
-    }
-    .example {
-        margin-top:40px;
-        margin-bottom:40px;;
-    }
-    
-    </style>
+    <link rel='stylesheet' href='/oss/cms4apps-site/target/assets/css/main.css'></style>
+
   </head>
   <body>
       <div class="container">
+                  <nav>
+                      <div class="navbar-center">
+                        <a class="link" href="/oss/cms4apps-site/target/tutorial/index.html">content</a>
+                      </div>
+      <ul class="pager">
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/index.html"><span aria-hidden="true">&larr;</span>back</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/basic templating/create a link.html">create a link <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
         <h3>simple property</h3>
         <p>
             This is a simple example with one attribute <b>text </b>of type <i>string. </i>The template simply displays the string in a paragraph. <span style="line-height: 1.23099987323468;">Try changing the value in the </span><b style="line-height: 1.23099987323468;">richtext </b><span style="line-height: 1.23099987323468;">editor.</span>
@@ -82,26 +46,26 @@
     </ul>
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="content">
-            <pre><code class="json">{
+                <pre><code class="json">{
  &quot;text&quot;: &quot;This is a dynamic text.&quot;,
  &quot;name&quot;: &quot;simple property&quot;,
  &quot;index&quot;: 1,
- &quot;template&quot;: &quot;first-example&quot;,
- &quot;path&quot;: &quot;/tutorial/basic templating/simple property&quot;,
+ &quot;template&quot;: &quot;/first-example.json&quot;,
+ &quot;path&quot;: &quot;/tutorial/basic templating/simple property.json&quot;,
  &quot;parent&quot;: &quot;/tutorial/basic templating&quot;
 }</code></pre>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="template">
-            <pre><code class="handlebars">&lt;p&gt;{{{text}}}&lt;/p&gt;
+            </div>
+            <div role="tabpanel" class="tab-pane" id="template">
+                <pre><code class="handlebars">&lt;p&gt;{{{text}}}&lt;/p&gt;
 </code></pre>
+            </div>
         </div>
-    </div>
     </div>
     
     <nav>
       <ul class="pager">
-            <li class="previous"><a href="/tutorial/index.html"><span aria-hidden="true">&larr;</span>back</a></li>
-            <li class="next"><a href="/tutorial/basic templating/create a link.html">create a link <span aria-hidden="true">&rarr;</span></a></li>
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/index.html"><span aria-hidden="true">&larr;</span>back</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/basic templating/create a link.html">create a link <span aria-hidden="true">&rarr;</span></a></li>
       </ul>
     </nav>
     
@@ -110,10 +74,10 @@
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="/oss/cms4apps-site/target/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/dist/js/bootstrap.js"></script>
-    <script src="gform-app/controller/mock.js"></script>
+    <script src="/oss/cms4apps-site/target/bootstrap/dist/js/bootstrap.js"></script>
+    
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
