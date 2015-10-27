@@ -10,6 +10,7 @@
     <!-- Bootstrap -->
     <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/highlight/styles/github.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,48 +42,64 @@
          <li ><a href="/gform-app.html">gform application</a></li>
          </div><!-- /.navbar-collapse -->
          </div><!-- /.container-fluid -->
-        </nav>        
-        <div class="container"/>
-        <div class="row">
-            <div class="col-md-9" style="position:relative">
-                <h1>Mongomat</h1>
-                <p><span style="line-height: normal;">Mongomat is the best place to manage mongodb data. The query builder ui and the completely customizable detail editor are the highlights of mongomat.</span></p>
-                    <a label="nav_0"></a>
-                    <h2 id="nav_0" class="page-header">1. Introduction</h2>
-                    
-                        <h1></h1>
-                        <p>The main application is split into different views. The views can be switched in the drop-down-list in the top toolbar. The list will start with the following items:<div><br /></div><div><ul><li><b>documentation</b> calls up this document<br /></li><li><b>settings</b> calls up the collection metadata, which holds all the customization</li><li><b>db</b> calls up the list of configured databases</li><li><b>schema</b> calls up the list of schemas and </li></ul><div>The entries following the schema view will be the configured databases. These open up submenus with links to all collections' views.</div></div></p>            <a label="nav_1"></a>
-                    <h2 id="nav_1" class="page-header">2. Collection view</h2>
-                    
-                        <h1></h1>
-                        <p>Select a database and a collection from the view selector in the top toolbar. The view changes and provides a grid on the left and a detail editor on the right. <div><br /></div><div><br /></div><div><b>Toolbar</b></div><div><b><br /></b></div><div>In the top toolbar there is the view selector and three more buttons:<div><br /></div><div><ul><li><b>add</b> for adding a new document <br /></li><li><b>settings</b> for opening the settings view</li><li><b>help</b> for displaying a help tooltip</li></ul><div><b><br /></b></div><div><b>Grid</b></div></div></div><div><b><br /></b></div><div>The grid provides a json editor to create a customer query. Also it provides a query builder which opens when clicking on the filter icon on the top left of the grid. Clicking on the column header sorts the data by the columns values. The context menu on the rows provide two actions:</div><div><br /></div><div><ul><li><b>open as json</b> opens the document in a pure json editor.</li><li><b>delete</b> opens a confirmation dialog and will delete the document.</li></ul><div><b><br /></b></div><div><b>Detail editor</b></div></div><div><br /></div><div>The detail editor provides a number of self-explanatory actions on the bottom:</div><div><br /></div><div><ul><li>save<br /></li><li>discard</li><li>delete</li><li>close</li></ul><div>On the top there can be a selector which shows the schema of the document and can be used to switch to a different type. The selector shows up only if the collection was configured to have more than one schema in the settings view.</div></div><div><br /></div><div><br /></div></p>            <a label="nav_2"></a>
-                    <h2 id="nav_2" class="page-header">3. Settings View</h2>
-                    
-                        <h1></h1>
-                        <p><p>The settings view is accessed from the view selector or by clicking on settings in a collection view. The settings view contains metadata for the collections. This metadata is stored in a special mongodb database. The settings view is just like a collection view for the collection metadata with extra functionality.</p><p>The detail editor provides the following properties in the top pane:</p><p></p><ul><li><b>name</b> the name of the collection as used in the view selector <br /></li><li><b>collection</b> the monogdb collection name.</li><li><b>db</b> the database that contains the collection.</li><li><b>allow user assigned id?</b> check this if you want the user to provide the mongodb id.</li><li><b>description</b> is displayed in the help tooltip in the collection view.</li><li><b>schema </b>defines the schema or schemas that documents in the collection conform to.</li></ul><p></p><p><br /></p><p><b>Schema</b></p><p>A collection can have one or more schemas associated with it. The purpose of the schema is to guide the user in editing documents by providing a sophisticated detail editor. Either there is a single schema for all documents in the collection or each document contains a property that serves as type discriminator - called type property. Schemas are stored separately and it is possible to compose schemas by reference, so that even a recursive schema structure representing a tree model is possible. </p> The following operations are available: <ul> <li><b>add </b>creates a new collection (toolbar)</li> <li><b>delete</b> collection and its metadata</li> <li><b>go to view</b> jump to the data view of the selected collection</li> <li><b>generate schema</b> information by sampling existing data</li></ul><p><b><br /></b></p><p><b>	Generating the schema</b> </p><p>Generating the schema is a very useful feature if there is an existing collection containing documents. The	generation dialog asks the user to specify the number of documents to sample and optionally the name of the type property. Restricting the number of samples will yield a faster generation process but may produce a less exact result. The type property maybe specified if one exists. A type property is a property whose value is interpreted as a type discriminator. There will be a distinct schema for each value of the property. If the documents in the collection were created by a Mapping library in a statically typed OO-language (e.g. Morphia or spring data for Java) then the name of the class will most likely be stored in the type property. </p><p>Once you generated the schema you still want to customize it.</p><p><b><br /></b></p><p><b>Customizing schema and editor</b></p><p>The schema contains information about the editor which the author uses to create and edit documents:</p><p><ul><li>the order of the attributes<br /></li><li>descriptions for each attribute<br /></li><li>attributes can be grouped in columns, tab or accordions</li><li>attributes can be made visible, disabled</li></ul></p></p>            <a label="nav_3"></a>
-                    <h2 id="nav_3" class="page-header">4. Db view</h2>
-                    
-                        <h1></h1>
-                        <p>The list of dbs provides information about their size on disk. The details include the list of collections.<br />The operations available on a single db include the creation of a new collection and the synchronization between<br />the actual db's collections and the collections stored in the metadata store. When starting the app these two will be synchronized automatically. If a new collection is created in the db while this app is running then this new collection will not be displayed until a synchronization is performed. A db cannot be created in mongomat right now.</p>    </div>
-            <div class="col-md-3">
-                <nav id="navigation" class="affix">
+        </nav>
+<div class="container"/>
+<div class="row">
+    <div class="col-md-9" style="position:relative">
+        <h1>Mongomat</h1>
+        <p><span style="line-height: normal;">Mongomat is the best place to manage mongodb data. The query builder ui and the completely customizable detail editor are the highlights of mongomat.</span></p>
+            <h2 id="nav_0" class="page-header">1. Introduction</h2>
+            
+<h1></h1>
+<p>The main application is split into different views. The views can be switched in the drop-down-list in the top toolbar. The list will start with the following items:<div><br /></div><div><ul><li><b>documentation</b> calls up this document<br /></li><li><b>settings</b> calls up the collection metadata, which holds all the customization</li><li><b>db</b> calls up the list of configured databases</li><li><b>schema</b> calls up the list of schemas and </li></ul><div>The entries following the schema view will be the configured databases. These open up submenus with links to all collections' views.</div></div></p>            <h2 id="nav_1" class="page-header">2. Collection view</h2>
+            
+<h1></h1>
+<p>Select a database and a collection from the view selector in the top toolbar. The view changes and provides a grid on the left and a detail editor on the right. <div><br /></div><div><br /></div><div><b>Toolbar</b></div><div><b><br /></b></div><div>In the top toolbar there is the view selector and three more buttons:<div><br /></div><div><ul><li><b>add</b> for adding a new document <br /></li><li><b>settings</b> for opening the settings view</li><li><b>help</b> for displaying a help tooltip</li></ul><div><b><br /></b></div><div><b>Grid</b></div></div></div><div><b><br /></b></div><div>The grid provides a json editor to create a customer query. Also it provides a query builder which opens when clicking on the filter icon on the top left of the grid. Clicking on the column header sorts the data by the columns values. The context menu on the rows provide two actions:</div><div><br /></div><div><ul><li><b>open as json</b> opens the document in a pure json editor.</li><li><b>delete</b> opens a confirmation dialog and will delete the document.</li></ul><div><b><br /></b></div><div><b>Detail editor</b></div></div><div><br /></div><div>The detail editor provides a number of self-explanatory actions on the bottom:</div><div><br /></div><div><ul><li>save<br /></li><li>discard</li><li>delete</li><li>close</li></ul><div>On the top there can be a selector which shows the schema of the document and can be used to switch to a different type. The selector shows up only if the collection was configured to have more than one schema in the settings view.</div></div><div><br /></div><div><br /></div></p>            <h2 id="nav_2" class="page-header">3. Settings View</h2>
+            
+<h1></h1>
+<p><p>The settings view is accessed from the view selector or by clicking on settings in a collection view. The settings view contains metadata for the collections. This metadata is stored in a special mongodb database. The settings view is just like a collection view for the collection metadata with extra functionality.</p><p>The detail editor provides the following properties in the top pane:</p><p></p><ul><li><b>name</b> the name of the collection as used in the view selector <br /></li><li><b>collection</b> the monogdb collection name.</li><li><b>db</b> the database that contains the collection.</li><li><b>allow user assigned id?</b> check this if you want the user to provide the mongodb id.</li><li><b>description</b> is displayed in the help tooltip in the collection view.</li><li><b>schema </b>defines the schema or schemas that documents in the collection conform to.</li></ul><p></p><p><br /></p><p><b>Schema</b></p><p>A collection can have one or more schemas associated with it. The purpose of the schema is to guide the user in editing documents by providing a sophisticated detail editor. Either there is a single schema for all documents in the collection or each document contains a property that serves as type discriminator - called type property. Schemas are stored separately and it is possible to compose schemas by reference, so that even a recursive schema structure representing a tree model is possible. </p> The following operations are available: <ul> <li><b>add </b>creates a new collection (toolbar)</li> <li><b>delete</b> collection and its metadata</li> <li><b>go to view</b> jump to the data view of the selected collection</li> <li><b>generate schema</b> information by sampling existing data</li></ul><p><b><br /></b></p><p><b>	Generating the schema</b> </p><p>Generating the schema is a very useful feature if there is an existing collection containing documents. The	generation dialog asks the user to specify the number of documents to sample and optionally the name of the type property. Restricting the number of samples will yield a faster generation process but may produce a less exact result. The type property maybe specified if one exists. A type property is a property whose value is interpreted as a type discriminator. There will be a distinct schema for each value of the property. If the documents in the collection were created by a Mapping library in a statically typed OO-language (e.g. Morphia or spring data for Java) then the name of the class will most likely be stored in the type property. </p><p>Once you generated the schema you still want to customize it.</p><p><b><br /></b></p><p><b>Customizing schema and editor</b></p><p>The schema contains information about the editor which the author uses to create and edit documents:</p><p><ul><li>the order of the attributes<br /></li><li>descriptions for each attribute<br /></li><li>attributes can be grouped in columns, tab or accordions</li><li>attributes can be made visible, disabled</li></ul></p></p>            <h2 id="nav_3" class="page-header">4. Db view</h2>
+            
+<h1></h1>
+<p>The list of dbs provides information about their size on disk. The details include the list of collections.<br />The operations available on a single db include the creation of a new collection and the synchronization between<br />the actual db's collections and the collections stored in the metadata store. When starting the app these two will be synchronized automatically. If a new collection is created in the db while this app is running then this new collection will not be displayed until a synchronization is performed. A db cannot be created in mongomat right now.</p>    </div>
+    <div class="col-md-3">
+        <nav id="navigation" class="bs-docs-sidebar affix">
+            <ul class="nav bs-docs-sidenav">
+                <li>
+                    <a href="#nav_0">Introduction</a>
                     <ul class="nav">
                         <li>
-                            <a href="#nav_0">Introduction</a>
-                        </li>
-                        <li>
-                            <a href="#nav_1">Collection view</a>
-                        </li>
-                        <li>
-                            <a href="#nav_2">Settings View</a>
-                        </li>
-                        <li>
-                            <a href="#nav_3">Db view</a>
+                            <a href="#subnav_0_0"></a>
                         </li>
                     </ul>
-                </nav>
-            </div>
-        </div>
+                </li>
+                <li>
+                    <a href="#nav_1">Collection view</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_1_0"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_2">Settings View</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_2_0"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_3">Db view</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_3_0"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
     
     <footer class="footer">
         <p>created with cms<span style="color:red">4</span>apps</p>
@@ -94,6 +111,5 @@
     <script src="/bootstrap/dist/js/bootstrap.js"></script>
     <script src="gform-app/controller/mock.js"></script>
     <script>$('body').scrollspy({ target: '#navigation' })</script>
-
   </body>
 </html>
