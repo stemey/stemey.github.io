@@ -48,14 +48,17 @@
     <div class="col-md-9" style="position:relative">
         <h1>gform application</h1>
         <p></p>
-            <h2 id="nav_0" class="page-header">1. Introduction</h2>
+            <h2 id="nav_0" class=" page-header">1. Introduction</h2>
             
-<p> A framework to rapidly create administrative uis such as database clients or cms.
+<div class=" sections.0.blocks.0">
+    <p> A framework to rapidly create administrative uis such as database clients or cms.
  Supports creation of master and detail views based on schemas. Also supports
  creation of schemas in the ui, which is the essential ingredient to create a cms.</p>
-            <h2 id="nav_1" class="page-header">2. examples</h2>
+
+</div>            <h2 id="nav_1" class=" page-header">2. examples</h2>
             
-<h3 id="applications">applications</h3>
+<div class=" sections.1.blocks.0">
+    <h3 id="applications">applications</h3>
 <p><strong>mongomat</strong></p>
 <p>An admin ui for mongodb 
 This is an example of the dynamic resources approach. Stores and schemas can be created and modified at runtime.
@@ -76,50 +79,41 @@ change.</p>
 <p>A cms that uses handlebars for rendering.</p>
 <p>An example of a single store with its documents forming a tree structure. Documents are individually associated to schemas
 by a discriminator property. Each schema has a template. The gui provides a tree view, a preview and a details editor. </p>
-<p>The cms does not provide a way to statically generate the site or dynamically serve it either. It is up to the developer to write an application
-that uses the content and templates from the cms. Usually applications use extra logic and more data sources to render 
-the pages. This extra information can be mocked in the cms using extra data. For example the login information of the current
-user are replaced by static mock data in the cms.</p>
 <p><strong><a title="null"href="http://toobop.net/gform-app/dynamic.html">dynamic</a></strong></p>
 <p>An example of a dynamic resource factory, which provides a way to dynamically create new schemas and stores.</p>
-            <h2 id="nav_2" class="page-header">3. domain</h2>
+
+</div>            <h2 id="nav_2" class=" page-header">3. domain</h2>
             
-<p>The domain model explains how gform applications are
-composed of entities, stores and schemas. In the following there will be references to the so called appContext.
-It is a global object that provides access to stores and schemas.</p>
-<div>
-    <h3 id="subnav_2_1">3.2 entity</h3>
-<p>Entities are json documents. An entity is contained in a store.  An entity has  an  id. 
-This id needs to be unique across all entities in its store.</p>
-<p>An entity has an associated schema that it conforms to. There are stores with a single 
-schema that all its entitites conform to. And there are stores that have a set of schemas.
-In this case each entity defines its schema by a type discrimator property called typeProperty.</p>
-<p>To retrieve an entity&#39;s schema there are two ways:</p>
-<ol>
-<li><p>All entities in the store have the same type.
-<code>store.template</code>is the id of the schema. To retrieve it use <code>schemaRegistry.get(id)</code>. SchemaRegistry
-is a registry for all schemas that is available via the glabal AppContext object.</p>
-</li>
-<li><p>The store contains entities of different types.
- An entity&#39;s type is defined by its typeProperty. The name of the typeProperty is retrieved from <code>store.typeProperty</code>.
-To retrieve the the schema from the schemaRegistry you need to prefix the typeProperty&#39;s value with <code>store.templateStore</code>.</p>
-</li>
-</ol>
-<pre><code class="lang-javascript">var promise = appContext.getSchema(store.templateStore+&quot;/&quot;+entity[store.typeProperty];
-// equivalent to
-var promise = appContext.getStore(store.templateStore).get(entity[store.typeProperty])
-</code></pre>
-</div><div>
-    <h3 id="subnav_2_2">3.3 store</h3>
-<p>An entity is a json document which is accessed via a store. A store provides access to entities via http or it serves them from a browser storage.
-Each entity in a store has an associated schema.</p>
-<div class="center-block caption-fix">
+<div class=" sections.2.blocks.0">
+    <p>The domain model explains how gform applications are
+composed of entities, stores and schemas.</p>
+
+</div><div class="">
+    <h3 id="subnav_2_1">3.1 entity</h3>
+<div class=" sections.2.blocks.1.blocks.0">
+    <p>Entities are json documents. An entity is contained in a store.  An entity has  an  id. 
+This id needs to be unique across all entities in its store. Each entity conforms to a schema.</p>
+
+</div></div><div class="">
+    <h3 id="subnav_2_2">3.2 store</h3>
+<div class=" sections.2.blocks.2.blocks.0">
+    <p>A store provides access to entities.
+Stores have a simple api and can be used to access data from different systems:
+browser stores like IndexDB, LocalStorage or server side stores providing access via rest.</p>
+<p>There are two types of stores. First there are stores whose entities all
+conform to the same schema. Secondly there are stores whose entity
+conform to the schema identified by the value of their type discriminator proeprty
+called typeProperty. The schemas associated with these stores are
+stored in a so-called templateStore.</p>
+
+</div><div class=" center-block caption-fix">
     <img src="http://www.plantuml.com/plantuml/img/RL71Ri8m3BtxAt9a1r0FE_K0N3Q96nByW4ciDfARbiJLLB7z-vm1LJgHG-Bt_FnY9_ia66Ni69959lDULURBEsa1B6DAfXjPV98-ahc1qINJGCVO3nHbgasIw4DpJr0tC0gTidZE_3oDaYAcXTEZu8MsK7dtyZRlpjh8RkR8UItwHAkxAZzA2Ehfcu0NfeFRrPU-Py80jiNGq7-s8LczrO3EvMCO_z1rf3Zbm16JK8wCoVqMpxDUVs_ldKCvQq7FuzcMEjJvr60XtJvIIzidQ-fgima0UmfEV-mN" class="center-block img-responsive" alt="" />
     <div class="caption">
         <p >The class diagram for store and schema</p>
     </div>
 </div>
-<p>Stores are an extension of <code>dojo/store</code> and have the following properties (in addition to the ones defined by <code>dojo/store</code>):</p>
+<div class=" sections.2.blocks.2.blocks.2">
+    <p>Stores are an extension of <code>dojo/store</code> and have the following properties (in addition to the ones defined by <code>dojo/store</code>):</p>
 <table class="table table-bordered table-striped">
 <thead>
 <tr>
@@ -181,14 +175,7 @@ Each entity in a store has an associated schema.</p>
 </tr>
 </tbody>
 </table>
-<p>To get the actual store implementation from the store&#39;s name:</p>
-<pre><code class="lang-javascript">// require dojo/when
-var store = appContext.getStore(&quot;/users&quot;);
-when(store.get(123)).then(function(user) {...};
-</code></pre>
 <p>Either the store has a template property or both a typeProperty and the templateStore property.</p>
-<p>Store is an abstraction to access entities. Stores have a simple api and can be used to access data from different systems:
-browser stores like IndexDB, LocalStorage or server side stores providing access via rest.</p>
 <p>A store provides functions to create, update, read, query and delete entities. Stores use promises as return values for
 asynchronuos access but fallback to simple valus for synchronuos access.</p>
 <h4 id="read-a-single-entity-by-id">Read a single entity by id</h4>
@@ -212,9 +199,11 @@ and the other by <code>gridx/Grid</code>. <strong>TODO</strong>: more on impleme
 <p>A store can contain a tree of entities (See <a title="null"href="dojotoolkit.html">here</a>). There are two ways to implement this behavior in gform-app.
 Either all entities except the root have a parent identified by its id. Then the store needs to provide a <code>parentProperty</code>. Or the id of the
 ntities is also their path in the tree.</p>
-</div><div>
-    <h3 id="subnav_2_3">3.4 schema</h3>
-<p>A schema defines the attributes (properties) an entity can or must have. These schemas are usually gform schema documents that are perfect to create
+
+</div></div><div class="">
+    <h3 id="subnav_2_3">3.3 schema</h3>
+<div class=" sections.2.blocks.3.blocks.0">
+    <p>A schema defines the attributes (properties) an entity can or must have. These schemas are usually gform schema documents that are perfect to create
 a form to edit its instances. Schemas can allow additional dynamic properties that are not restricted by the schema.</p>
 <p>To programmatically get hold of the schema:</p>
 <pre><code class="lang-javascript">// require dojo/when
@@ -265,42 +254,85 @@ a dynamic database client to create a new schema. </p>
 <p>There is a standard set of json files that describe all groups and attributes
 available in gform. These can be composed filtered and extended to create
 the ideal meta schema.</p>
-</div>            <h2 id="nav_3" class="page-header">4. application</h2>
+
+</div></div>            <h2 id="nav_3" class=" page-header">4. application</h2>
             
-<p>The frontend of the is composed of dojo widgets. The main widgets are as follows</p>
-<div>
-    <h3 id="subnav_3_1">4.2 widget</h3>
-<p>The frontend of the is composed of dojo widgets. The main widgets are as follows</p>
+<div class=" sections.3.blocks.0">
+    
+</div><div class="">
+    <h3 id="subnav_3_1">4.1 views</h3>
+<div class=" sections.3.blocks.1.blocks.0">
+    <p>Each store is associated with a view. A view
+usually consists of the following:</p>
 <ul>
-<li>BorderContainer </li>
-<li>asd</li>
-<li></li>
+<li>a set of actions available in the toolbar.</li>
+<li>a master view which is either a grid or a tree or both.</li>
+<li>a detail view which is usually the TabOpener</li>
+<li>optionally a previewer</li>
 </ul>
-<div class="center-block caption-fix">
+<p>Views can be switched via the view menu in the toolbar.</p>
+
+</div><div class=" center-block caption-fix">
+    <img src="/assets/images/view.png" class="center-block img-responsive" alt="" />
+    <div class="caption">
+        <p >The page view which of cms4apps.</p>
+    </div>
+</div>
+</div><div class="">
+    <h3 id="subnav_3_2">4.2 widgets</h3>
+<div class=" sections.3.blocks.2.blocks.0">
+    <p>The frontend of the is composed of dojo widgets. 
+Some widgets change their appearance when a view is
+switched.</p>
+<h4 id="bordercontainer">BorderContainer</h4>
+<p>The root widget is a bordercontainer which displays
+a toolbar on top.
+Below the toolbar there are three region that can be occupied by different 
+widgets. The slots are left, right and center. left and right have a fixed width and center
+takes up the rest of the space. Hence there must always be a center widget.</p>
+<p>The definition which widget occupies which region is defined individually for each
+view. Widgets may also be hidden for a certain view.</p>
+<h4 id="toolbar">Toolbar</h4>
+<p>The Toolbar provides actions for the entities of the current view. The most common
+is the create or add action which creates a new entity in the current view&#39;s store.</p>
+<h4 id="storeview">StoreView</h4>
+<p>The store view is a widget that provides an individual master view for each view.
+The master view is created and populated by the current store&#39;s entities on demand. 
+If an node in a tree or a row in a grid is selected the 
+corresponding entity is usually displayed in the TabOpener.</p>
+<h4 id="tabopener">TabOpener</h4>
+<p>The TabOpener displays the details of an entity. It does not change its appearance
+when the view is changed.</p>
+<h4 id="previewer">Previewer</h4>
+<p>The previewer is usually only visible for certain views.
+The previewer renders the currently selected entity.</p>
+
+</div><div class=" center-block caption-fix">
     <img src="http://www.plantuml.com/plantuml/img/TPBDRi8m48JlVWgVAo651-021zf3LIGGToUU9aQM7MqME23UlNPZEn4_jyZppUnudQ5H5d9PLPMy6isTyFK93Skr9mtQUCVAE92yYRl8si5xMwjuHcYDTolsVPGVFH-BHMQBTqDGZFMPsRinDAT5UguMoz7W-WrtViQp8WgxPq-8nm6MgPt5Bx-hL_YIi5Cj3eGI8kKGcI-zweCISwOPCM7Ebv0jmW1bjsHqoddoFI3J5NQ4o-X9_Hiu1its_wcSjWXB61Bx_pvz_WvLkq94MqwCOrzuNoucgTERg_gdn_Wdf5vaskxjOWiln1y0" class="center-block img-responsive" alt="" />
     <div class="caption">
         <p >A widget tree example</p>
     </div>
 </div>
-</div><div>
-    <h3 id="subnav_3_2">4.3 AppContext</h3>
-<p>The appContext is made available to all widgets during construction.
+</div><div class="">
+    <h3 id="subnav_3_3">4.3 components</h3>
+<div class=" sections.3.blocks.3.blocks.0">
+    <p>The appContext is made available to all widgets during construction.
 All stores and schemas are available via the AppContext.
-The AppContext also manages the current navigation state.</p>
-<p>The app&#39;s global state is managed by <code>gform/AppContext</code>:</p>
-<p>properties:</p>
-<ul>
-<li>storeId: the currently selected store. Each store is associated with a customer view.</li>
-<li>schemaRegistry: global registry for schemas </li>
-<li>storeRegistry:global registry for stores</li>
-</ul>
-<p>All components have access to the AppContext during initialization.</p>
-</div><div>
-    <h3 id="subnav_3_3">4.4 StoreRegistry</h3>
+The AppContext also manages the current navigation state which is the currently selected entity and store.</p>
+
+</div><div class=" center-block caption-fix">
+    <img src="http://www.plantuml.com/plantuml/img/TLAxRiCm3Dpr5HpbeaRs30MAJ5qReBigiOu1sJBqI1iK_VUAacmf1h8Ov96yErAMMZW7hyjoChF77m-_39mt5jyK70xWBmWoM8kprpVuCZ8uXoftCBYE-Es0mO3-b9lELE3T7VOHktYNa5mULSo4KclsdFaYQ74oLzowCirPNd0I9QUnDOzpAUmQ-27dWsha9t-ErvYN_JFjwZxJK0PfWJ_6PBfTPdx7ONJUtkX-aOS7gzCGeMWftTp6BSBSLfh6R70M4rQBjRbMatxpQdt_iZToB7ehiFabahtTz2IRf_P0ZTMozbxsZk-O1wjeKKs7Ys80ewAl5f-eAIY_4i1WJLXs_4zzdoRPFm00" class="center-block img-responsive" alt="" />
+    <div class="caption">
+        <p >AppContext </p>
+    </div>
+</div>
+<div class=" sections.3.blocks.3.blocks.2">
+    <h4 id="storeregistry">StoreRegistry</h4>
 <p>All stores are available via the storeRegistry.
 The stores can be added and removed to the storeRegistry at runtime.</p>
-</div><div>
-    <h3 id="subnav_3_4">4.5 SchemaRegistry</h3>
+
+</div><div class=" sections.3.blocks.3.blocks.3">
+    <h4 id="schemaregistry">SchemaRegistry</h4>
 <p>The schemaRegistry provides access to all schemas.
 Schemas can be added and removed from it at runtime.</p>
 <table class="table table-bordered table-striped">
@@ -333,28 +365,31 @@ Schemas can be added and removed from it at runtime.</p>
 </tr>
 </tbody>
 </table>
+<p>To retrieve an entity&#39;s schema there are two ways:</p>
+<ol>
+<li><p>All entities in the store have the same type.
+<code>store.template</code>is the id of the schema. To retrieve it use <code>schemaRegistry.get(id)</code>. SchemaRegistry
+is a registry for all schemas that is available via the glabal AppContext object.</p>
+</li>
+<li><p>The store contains entities of different types.
+ An entity&#39;s type is defined by its typeProperty. The name of the typeProperty is retrieved from <code>store.typeProperty</code>.
+To retrieve the the schema from the schemaRegistry you need to prefix the typeProperty&#39;s value with <code>store.templateStore</code>.</p>
+</li>
+</ol>
+<pre><code class="lang-javascript">var promise = appContext.getSchema(store.templateStore+&quot;/&quot;+entity[store.typeProperty];
+// equivalent to
+var promise = appContext.getStore(store.templateStore).get(entity[store.typeProperty])
+</code></pre>
 <p>The stores that contain schemas are special stores in that the get method
 will not only return the stored json assuming its a schema. If the schema includes
 links to external schemas then these will be loaded and the schemas will be substituted for the links.
 This is done recursively.</p>
-</div><div>
-    <h3 id="subnav_3_5">4.6 schemas</h3>
-<p>Schemas are registered with a SchemaRegistry.
-There are static schemas that are known 
-at startup tie and don&#39;t change. Then there are schemas
-that are stored in a store. They may or may not be modifiable.
-If schemas stored in a store are modifiable
-they are entities of the store and have a schema themselves.
-This metaschema describes all possible attributes the schema may have.
-Usually there will be a way for the user to edit or
-create a new schema by using the form generated from this
-metaschema.</p>
-<h4 id="static-schema">static schema</h4>
-<p>A static schema can be a single json file.</p>
-</div>            <h2 id="nav_4" class="page-header">5. messages</h2>
-            
-<p>The loosely coupled components in gform-app communicate via <code>dojo/topic</code> messages.</p>
-<h3 id="entity">entity</h3>
+
+</div></div><div class="">
+    <h3 id="subnav_3_4">4.4 messages</h3>
+<div class=" sections.3.blocks.4.blocks.0">
+    <p>The loosely coupled components in gform-app communicate via <code>dojo/topic</code> messages.</p>
+<h4 id="entity">entity</h4>
 <p>these messages handle entities.</p>
 <table class="table table-bordered table-striped">
 <thead>
@@ -402,7 +437,7 @@ metaschema.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="store">store</h3>
+<h4 id="store">store</h4>
 <p>these messages handle stores.</p>
 <table class="table table-bordered table-striped">
 <thead>
@@ -435,8 +470,30 @@ metaschema.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="examples">examples</h3>
-<p>Here are some examples how messages are used to drive the ui.</p>
+<h4 id="element">element</h4>
+<p>A gform detail editor publishes messages. This can be used to link
+the navigation state in the detail editor with the one of the preview.</p>
+<table class="table table-bordered table-striped">
+<thead>
+<tr>
+<th>message</th>
+<th>event</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/element/focus</td>
+<td>path, source</td>
+<td>An attribute in the detail editor was focussed. The path to the attribute is available.</td>
+</tr>
+</tbody>
+</table>
+
+</div></div><div class="">
+    <h3 id="subnav_3_5">4.5 examples</h3>
+<div class=" sections.3.blocks.5.blocks.0">
+    <p>Here are some examples how messages are used to drive the ui.</p>
 <h4 id="create-a-new-entity">create a new entity</h4>
 <p>The toolbar button &quot;add&quot; publishes a <code>/new</code> event. The <code>TabOpener</code> is subscribed to the message and creates a new tab with 
  a corresponding editor.</p>
@@ -450,9 +507,11 @@ displays the editor described by the gform schema. Another example is a entity t
 The Previewer will render the template with the entity as the input data. 
 To provide an update to the rendered view based while the user changes the entity but beofre it is saved the previwer listens to <code>/modify/update</code>
 messages. </p>
-            <h2 id="nav_5" class="page-header">6. project</h2>
+
+</div></div>            <h2 id="nav_4" class=" page-header">5. project</h2>
             
-<p>the project is hosted on github. <a title="null"href="http://github.com/stemey/gform-app">more..</a></p>
+<div class=" sections.4.blocks.0">
+    <p>the project is hosted on github. <a title="null"href="http://github.com/stemey/gform-app">more..</a></p>
 <h3 id="installation">installation</h3>
 <pre><code class="lang-sh">git clone www.github.com/stemey/gform-app
 cd gform-app
@@ -468,7 +527,8 @@ grunt build
 <pre><code class="lang-sh">grunt test
 </code></pre>
 <p>open in browser: /node_modules/intern/client.html?config=src/gform-app/tests/intern</p>
-    </div>
+
+</div>    </div>
     <div class="col-md-3">
         <nav id="navigation" class="bs-docs-sidebar affix">
             <ul class="nav bs-docs-sidenav">
@@ -512,35 +572,27 @@ grunt build
                             <a href="#subnav_3_0"></a>
                         </li>
                         <li>
-                            <a href="#subnav_3_1">widget</a>
+                            <a href="#subnav_3_1">views</a>
                         </li>
                         <li>
-                            <a href="#subnav_3_2">AppContext</a>
+                            <a href="#subnav_3_2">widgets</a>
                         </li>
                         <li>
-                            <a href="#subnav_3_3">StoreRegistry</a>
+                            <a href="#subnav_3_3">components</a>
                         </li>
                         <li>
-                            <a href="#subnav_3_4">SchemaRegistry</a>
+                            <a href="#subnav_3_4">messages</a>
                         </li>
                         <li>
-                            <a href="#subnav_3_5">schemas</a>
+                            <a href="#subnav_3_5">examples</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#nav_4">messages</a>
+                    <a href="#nav_4">project</a>
                     <ul class="nav">
                         <li>
                             <a href="#subnav_4_0"></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#nav_5">project</a>
-                    <ul class="nav">
-                        <li>
-                            <a href="#subnav_5_0"></a>
                         </li>
                     </ul>
                 </li>
