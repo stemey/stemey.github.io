@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="/oss/cms4apps-site/target/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/highlight/styles/github.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' href='/oss/cms4apps-site/target/assets/css/main.css'></style>
+
+  </head>
+  <body>
+      <div class="container">
+                  <nav>
+                      <div class="navbar-center">
+                        <a class="link" href="/oss/cms4apps-site/target/tutorial/index.html">content</a>
+                      </div>
+      <ul class="pager">
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/index.html"><span aria-hidden="true">&larr;</span>back</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/rich media/markdown in separate file.html">markdown in separate file <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+        <h3>embedded markdown</h3>
+        <p>
+            
+        </p>
+        <hr/>
+        <div class="example">
+            <p><strong>markdown is cool</strong></p>
+            <ol>
+            <li>ordered</li>
+            <li>list</li>
+            </ol>
+            <p>external link:
+            <a title="null"href="http://www.github.com">github</a></p>
+            <p>internal link:
+            <a title="null"href="/oss/cms4apps-site/target/index.html">index</a></p>
+            <p><img alt="null"src="/oss/cms4apps-site/target/assets/tutorial/pinguin.jpeg"></img></p>
+            
+        </div>
+    <div role="tabpanel">  
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#content" data-toggle="tab">render context</a></li>
+      <li role="presentation"><a href="#template" data-toggle="tab">templates</a></li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="content">
+                <pre><code class="json">{
+ &quot;markdown&quot;: &quot;**markdown is cool**\n\n1. ordered\n2. list\n\nexternal link:\n[github](http://www.github.com)\n\ninternal link:\n[index](/index.json)\n\n\n![Pinfla](/tutorial/pinguin.jpeg)\n&quot;,
+ &quot;name&quot;: &quot;embedded markdown&quot;,
+ &quot;template&quot;: &quot;/markdown-example-embedded.json&quot;,
+ &quot;index&quot;: 1,
+ &quot;path&quot;: &quot;/tutorial/rich media/embedded markdown.json&quot;,
+ &quot;parent&quot;: &quot;/tutorial/rich media&quot;
+}</code></pre>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="template">
+                <pre><code class="handlebars">{{{markdown markdown}}}
+</code></pre>
+            </div>
+        </div>
+    </div>
+    
+    <nav>
+      <ul class="pager">
+            <li class="previous"><a href="/oss/cms4apps-site/target/tutorial/index.html"><span aria-hidden="true">&larr;</span>back</a></li>
+            <li class="next"><a href="/oss/cms4apps-site/target/tutorial/rich media/markdown in separate file.html">markdown in separate file <span aria-hidden="true">&rarr;</span></a></li>
+      </ul>
+    </nav>
+    
+        
+        
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/oss/cms4apps-site/target/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/oss/cms4apps-site/target/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/oss/cms4apps-site/target/highlight.js/highlight.pack.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
+

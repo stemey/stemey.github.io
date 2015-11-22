@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Documentation</title>
+
+    <!-- Bootstrap -->
+    <link href="/oss/cms4apps-site/target/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/highlight/styles/github.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel='stylesheet' href='/oss/cms4apps-site/target/assets/css/main.css'></style>
+    
+  </head>
+  <body>
+        <nav class="navbar navbar-default">
+         <div class="container-fluid">
+         <!-- Brand and toggle get grouped for better mobile display -->
+         <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="/oss/cms4apps-site/target/index.html">home</a>
+         </div>
+        
+         <!-- Collect the nav links, forms, and other content for toggling -->
+         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+         <ul class="nav navbar-nav">
+         <li ><a href="/oss/cms4apps-site/target/cms4apps.html">cms4apps</a></li>
+         <li ><a href="/oss/cms4apps-site/target/mongomat.html">Mongomat</a></li>
+         <li ><a href="/oss/cms4apps-site/target/gform-app.html">gform application</a></li>
+         </div><!-- /.navbar-collapse -->
+         </div><!-- /.container-fluid -->
+        </nav>
+<div class="container"/>
+<div class="row">
+    <div class="col-md-9" style="position:relative">
+        <h1>cms<strong style="color:red">4</strong>apps</h1>
+        <p><div><div><br /></div></div></p>
+            <h2 id="nav_0" class=" page-header">1. Introduction</h2>
+            
+
+<style>
+    .carousel{
+        background-color:gray;
+    }
+    .item.item {
+        margin-left:10%;
+        margin-top:5%;
+        width:80%;
+   }
+    .description {
+        margin-top:5%;
+        margin-bottom:50px;
+        color:white;
+    }
+</style>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <div>
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/cms4apps_example.png" alt="">
+      </div>    
+      <div  style="height:120px" class="description">
+        <h3>page</h3>
+        <p><p>The page view displays all pages in a tree on the left. 
+In the center is a preview for the selected page. On the right
+is the content editor.</p>
+</p>
+      </div>
+    </div>
+    <div class="item ">
+      <div>
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/cms4apps/template-hbs.png" alt="">
+      </div>    
+      <div  style="height:120px" class="description">
+        <h3>template editor</h3>
+        <p><p>A template consists of the handlebars template and
+the definition of the content editor.</p>
+</p>
+      </div>
+    </div>
+    <div class="item ">
+      <div>
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/cms4apps/template-form.png" alt="">
+      </div>    
+      <div  style="height:120px" class="description">
+        <h3>schema editor</h3>
+        <p><p>This is the schema editor which the developer uses
+to create a content editor for the author.</p>
+</p>
+      </div>
+    </div>
+    
+      <!-- Indicators -->
+  <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0"  class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"  ></li>
+        <li data-target="#myCarousel" data-slide-to="2"  ></li>
+  </ol>
+
+
+
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div><h1></h1>
+<p>Cms4apps provides a very flexible solution to manage the content of dynamic web applications. <div><br /></div><div><b>application integration minimized</b></div><div>Cms4apps can be integrated with any dynamic web application. It only shares templates and content with the application. The application's logic is not integrated in the cms but rather mocked with managed data. An Application with a shopping cart will store the contents of the cart in the session while cms4apps simply provides the author with an editor to create mock cart content. This works well for side-effect free template languages like handlebars.<div><br /></div><b>template language agnostic</b><br /><div>cms4apps can be integrated with different templating frameworks Handlebars is supported out-of-the-box.</div><div><br /></div><div><b>datastore agnostic</b></div><div>Any rest server with crud and query operations can be used as a backend for content data. JCR, MongoDb and localstorage are supported out-of-the-box. Others can be integrated by implementing the javascript store abstraction.</div><div><br /></div><div><b>powerful modeling</b></div><div>Cms4apps provides a sophisticated metadata editor to create the content author's user interface. No need to learn a complex dsl to create ui metadata.</div><div><b><br /></b></div><div><b>Integration</b></div><div>Cms4apps is based on gform-app which makes it possible to provide data and content management for different dynamically or statically typed data stores side-by-side in a single tool.</div></div><div><br /></div><div><br /></div></p>            <h2 id="nav_1" class=" page-header">2. Overview</h2>
+            
+<h1></h1>
+<p>The application consists of four views which can be switched in the selector in the top toolbar. <div><br /></div><div><b>page view</b></div><div><br /></div><div>this view provides a tree and a grid to browse the pages in the left pane. It provides a context menu to delete pages and to edit pages in raw json form. The grid subview has a gui for creating simple queries and a text editor for creating more advanced queries. The gui queries only support the standard attributes name, parent and template. The text editor supports queries on all top level attributes. The format is mongodb-like. To <span style="line-height: 1.23099987323468;">search for page with a name that contains a digit use this query: </span><i style="line-height: 1.23099987323468;">{&quot;name&quot;:{&quot;$regex&quot;:&quot;\\d&quot;}}</i></div><div><br /></div><div>In the center pane is the page preview. It displays the the rendered html of the currently selected page. </div><div><br /></div><div>On the right there is the detail editor. Each page is opened in a new tab. The context menu in the tab header supports closing all or all the other tabs. This is where the author edits the content. On the top of the detail editor is a drop down list and button. The template of the page can be changed here. The Button switches to the detail editor of the currently selected template.</div><div><br /></div><div>In the top toolbar there is a button to add a new page and to expand the size of the preview.</div><div><br /></div><div><b>template view</b></div><div><br /></div><div>this view provides a grid to browse the templates on the left and a detail editor on the right. The templates provide the following information</div><div><br /></div><div><ul><li>the ui that the author uses to edit the content<br /></li><li>the actual handlebars template</li><li>the schema of the content including validation rules</li></ul></div><div><br /></div><div><br /></div><div><b>partial view</b></div><div><b><br /></b></div><div>The partial view is similar to the template view. The main difference between templates and partials is that a partial cannot be instantiated to create a new page. Partials can be used as components of templates.</div><div><br /></div><div><b>file view</b></div><div><br /></div><div>The file view provides access to raw files. These can be in text or binary format. Text format are identified by the file extensions and an appropriate ace editor is displayed. Among the supported formats are handlebars (*.hbs), css (*.css), markdown (*.md) and javascript (*.js). If the binary format is an image it will be displayed. Otherwise a download link is provided. Upload is possible via a file input field.</div><div><br /></div><div><br /></div><div><br /></div></p>            <h2 id="nav_2" class=" page-header">3. Getting Started</h2>
+            
+<h1></h1>
+<p>VIDEO showing the main aspects of the  cms.<div><br /></div><div><br /></div></p>            <h2 id="nav_3" class=" page-header">4. Tutorial</h2>
+            
+<div class=" sections.3.blocks.0">
+    <p>The tutorial consists of a set of demo pages 
+showing the main features of cms4apps. The pages are
+deployed in a cms4apps demo instance. The user can investigate change and
+start creating his own examples. </p>
+<p><a href="http://www.toobop.net/gform/cms.html" target="_blank">launch tutorial..</a></p>
+
+</div>            <h2 id="nav_4" class=" page-header">5. deployment</h2>
+            
+<div class="">
+    <h3 id="subnav_4_0">5.1 github pages</h3>
+</div><div class="">
+    <h3 id="subnav_4_1">5.2 local files</h3>
+</div>    </div>
+    <div class="col-md-3">
+        <nav id="navigation" class="bs-docs-sidebar affix">
+            <ul class="nav bs-docs-sidenav">
+                <li>
+                    <a href="#nav_0">Introduction</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_0_0"></a>
+                        </li>
+                        <li>
+                            <a href="#subnav_0_1"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_1">Overview</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_1_0"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_2">Getting Started</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_2_0"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_3">Tutorial</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_3_0"></a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav_4">deployment</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="#subnav_4_0">github pages</a>
+                        </li>
+                        <li>
+                            <a href="#subnav_4_1">local files</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+    
+    <footer class="footer">
+        <p>created with cms<span style="color:red">4</span>apps</p>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/oss/cms4apps-site/target/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/oss/cms4apps-site/target/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="gform-app/controller/mock.js"></script>
+    <script>$('body').scrollspy({ target: '#navigation' })</script>
+  </body>
+</html>

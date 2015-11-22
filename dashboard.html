@@ -1,0 +1,315 @@
+<html>
+   <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css" />
+   <style>
+       .chart-wrapper {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+.chart-wrapper .chart-title {
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 200;
+  padding: 7px 10px 4px;
+}
+
+.chart-wrapper .chart-stage {
+  /*min-height: 240px;*/
+  overflow: hidden;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.chart-wrapper .chart-notes {
+  background: #fbfbfb;
+  border-top: 1px solid #e2e2e2;
+  color: #808080;
+  font-size: 12px;
+  padding: 8px 10px 5px;
+}
+   </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+     <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+     <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+     <span class="sr-only">Toggle navigation</span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="/oss/cms4apps-site/target/index.html">home</a>
+     </div>
+    
+     <!-- Collect the nav links, forms, and other content for toggling -->
+     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav">
+     <li ><a href="/oss/cms4apps-site/target/cms4apps.html">cms4apps</a></li>
+     <li ><a href="/oss/cms4apps-site/target/mongomat.html">Mongomat</a></li>
+     <li ><a href="/oss/cms4apps-site/target/gform-app.html">gform application</a></li>
+     </div><!-- /.navbar-collapse -->
+     </div><!-- /.container-fluid -->
+    </nav>
+ <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 24 hours)
+          </div>
+          <div class="chart-stage">
+            <div id="0-0"></div>
+          </div>
+          <div class="chart-notes">
+            <span style="color: rgb(128, 128, 128); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; line-height: 17.142858505249px; background-color: rgb(251, 251, 251);">This is a sample text region to describe this chart.</span>
+          </div>
+        </div>
+      </div> 
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Pageviews by browser (past 5 days)
+          </div>
+          <div class="chart-stage">
+            <div id="0-1"></div>
+          </div>
+          <div class="chart-notes">
+            Notes go down here
+          </div>
+        </div>
+      </div> 
+ </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by advertiser
+          </div>
+          <div class="chart-stage">
+            <div id="1-0"></div>
+          </div>
+          <div class="chart-notes">
+            
+          </div>
+        </div>
+      </div> 
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by device
+          </div>
+          <div class="chart-stage">
+            <div id="1-1"></div>
+          </div>
+          <div class="chart-notes">
+            
+          </div>
+        </div>
+      </div> 
+      <div class="col-sm-4">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Impressions by country
+          </div>
+          <div class="chart-stage">
+            <div id="1-2"></div>
+          </div>
+          <div class="chart-notes">
+            
+          </div>
+        </div>
+      </div> 
+ </div>
+ 
+    <hr>
+
+    <p class="small text-muted">dashboard copied from demo by <a href="https://keen.io">Keen IO</a></p>
+
+  </div>
+        
+ </body>
+    
+  <script type="text/javascript" src="http://keen.github.io/dashboards/assets/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="http://keen.github.io/dashboards/assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="http://keen.github.io/dashboards/assets/lib/holderjs/holder.js"></script>
+  <script>
+    Holder.add_theme("white", { background:"#fff", foreground:"#a7a7a7", size:10 });
+  </script>
+
+<script src="//cdn.jsdelivr.net/keen.js/3.2.5/keen.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://keen.github.io/dashboards/assets/lib/keen-js/dist/keen.min.js"></script>
+  <script type="text/javascript" src="http://keen.github.io/dashboards/assets/js/meta.js"></script>
+  <script type="text/javascript" src="http://keen.github.io/dashboards/keen.dashboard.js"></script>
+    <script>
+var client = new Keen({
+  projectId: "5368fa5436bf5a5623000000",
+  readKey: "3f324dcb5636316d6865ab0ebbbbc725224c7f8f3e8899c7733439965d6d4a2c7f13bf7765458790bd50ec76b4361687f51cf626314585dc246bb51aeb455c0a1dd6ce77a993d9c953c5fc554d1d3530ca5d17bdc6d1333ef3d8146a990c79435bb2c7d936f259a22647a75407921056"
+});
+Keen.ready(function(){
+    
+     
+        
+        var timeframe ="__";
+        var currentKeenChart = new Keen.Query("count", {
+            eventCollection: "pageviews",
+            groupBy: "user.device_info.browser.family",
+            interval: "hourly",
+            timeframe: {
+              start: "2014-05-04T00:00:00.000Z",
+              end: "2014-05-05T00:00:00.000Z"
+            }
+          });
+         
+        client.draw(currentKeenChart, document.getElementById("0-0"), {
+            chartType: "areachart",
+            title: '',
+            height: '250px',
+            width: 'auto',
+            chartOptions: {
+              chartArea: {
+                height: '75%',
+                left: '10%',
+                top: '5%',
+                width: '60%'
+              },
+              bar: {
+                groupWidth: ''
+              },
+              pieHole: '',
+              isStacked: true
+            
+          }});
+                  
+        var timeframe ="__";
+        var currentKeenChart = new Keen.Query("count", {
+            eventCollection: "pageviews",
+            groupBy: "user.device_info.browser.family",
+            
+            timeframe: {
+              start: "2014-05-04T00:00:00.000Z",
+              end: "2014-05-05T00:00:00.000Z"
+            }
+          });
+         
+        client.draw(currentKeenChart, document.getElementById("0-1"), {
+            chartType: "piechart",
+            title: 'asdasd',
+            height: '250px',
+            width: 'auto',
+            chartOptions: {
+              chartArea: {
+                height: '75%',
+                left: '10%',
+                top: '5%',
+                width: '60%'
+              },
+              bar: {
+                groupWidth: ''
+              },
+              pieHole: '0.4',
+              isStacked: true
+            
+          }});
+                  
+        var timeframe ="__";
+        var currentKeenChart = new Keen.Query("count", {
+            eventCollection: "impressions",
+            groupBy: "ad.advertiser",
+            interval: "hourly",
+            timeframe: {
+              start: "2014-05-04T00:00:00.000Z",
+              end: "2014-05-05T00:00:00.000Z"
+            }
+          });
+         
+        client.draw(currentKeenChart, document.getElementById("1-0"), {
+            chartType: "columnchart",
+            title: '',
+            height: '250px',
+            width: 'auto',
+            chartOptions: {
+              chartArea: {
+                height: '75%',
+                left: '10%',
+                top: '5%',
+                width: '60%'
+              },
+              bar: {
+                groupWidth: '80%'
+              },
+              pieHole: '',
+              isStacked: true
+            
+          }});
+                  
+        var timeframe ="__";
+        var currentKeenChart = new Keen.Query("count", {
+            eventCollection: "impressions",
+            groupBy: "user.device_info.browser.family",
+            interval: "hourly",
+            timeframe: {
+              start: "2014-05-04T00:00:00.000Z",
+              end: "2014-05-05T00:00:00.000Z"
+            }
+          });
+         
+        client.draw(currentKeenChart, document.getElementById("1-1"), {
+            chartType: "columnchart",
+            title: '',
+            height: '250px',
+            width: 'auto',
+            chartOptions: {
+              chartArea: {
+                height: '75%',
+                left: '10%',
+                top: '5%',
+                width: '60%'
+              },
+              bar: {
+                groupWidth: '80%'
+              },
+              pieHole: '',
+              isStacked: true
+            
+          }});
+                  
+        var timeframe ="__";
+        var currentKeenChart = new Keen.Query("count", {
+            eventCollection: "impressions",
+            groupBy: "user.geo_info.country",
+            interval: "hourly",
+            timeframe: {
+              start: "2014-05-04T00:00:00.000Z",
+              end: "2014-05-05T00:00:00.000Z"
+            }
+          });
+         
+        client.draw(currentKeenChart, document.getElementById("1-2"), {
+            chartType: "columnchart",
+            title: '',
+            height: '250px',
+            width: 'auto',
+            chartOptions: {
+              chartArea: {
+                height: '75%',
+                left: '10%',
+                top: '5%',
+                width: '60%'
+              },
+              bar: {
+                groupWidth: '80%'
+              },
+              pieHole: '',
+              isStacked: true
+            
+          }});
+          });
+</script>
+    <script src="gform-app/controller/mock.js"></script>
+
+</html>
