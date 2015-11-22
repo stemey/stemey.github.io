@@ -8,16 +8,16 @@
     <title>gform application</title>
 
     <!-- Bootstrap -->
-    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/components-font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/highlight/styles/github.css">
+    <link href="/oss/cms4apps-site/target/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/components-font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/oss/cms4apps-site/target/highlight/styles/github.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <link rel='stylesheet' href='/assets/css/main.css'></style>
+    <link rel='stylesheet' href='/oss/cms4apps-site/target/assets/css/main.css'></style>
     
   </head>
   <body>
@@ -31,15 +31,15 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
          </button>
-         <a class="navbar-brand" href="/index.html">home</a>
+         <a class="navbar-brand" href="/oss/cms4apps-site/target/index.html">home</a>
          </div>
         
          <!-- Collect the nav links, forms, and other content for toggling -->
          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
          <ul class="nav navbar-nav">
-         <li ><a href="/cms4apps.html">cms4apps</a></li>
-         <li ><a href="/mongomat.html">Mongomat</a></li>
-         <li class="active"><a href="/gform-app.html">gform application</a></li>
+         <li ><a href="/oss/cms4apps-site/target/cms4apps.html">cms4apps</a></li>
+         <li ><a href="/oss/cms4apps-site/target/mongomat.html">Mongomat</a></li>
+         <li class="active"><a href="/oss/cms4apps-site/target/gform-app.html">gform application</a></li>
          </div><!-- /.navbar-collapse -->
          </div><!-- /.container-fluid -->
         </nav>
@@ -76,7 +76,7 @@
   <div class="carousel-inner" role="listbox">
     <div class="item active">
       <div>
-        <img class="img-responsive" src="/assets/images/cms4apps_example.png" alt="">
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/cms4apps_example.png" alt="">
       </div>    
       <div  style="height:120px" class="description">
         <h3>cms4apps</h3>
@@ -90,7 +90,7 @@ cms4apps has 4 stores for page, template, partial template and files.</p>
     </div>
     <div class="item ">
       <div>
-        <img class="img-responsive" src="/assets/images/static_example.png" alt="">
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/static_example.png" alt="">
       </div>    
       <div  style="height:120px" class="description">
         <h3>static example</h3>
@@ -101,7 +101,7 @@ and a single store.</p>
     </div>
     <div class="item ">
       <div>
-        <img class="img-responsive" src="/assets/images/dynamic_example.png" alt="">
+        <img class="img-responsive" src="/oss/cms4apps-site/target/assets/images/dynamic_example.png" alt="">
       </div>    
       <div  style="height:120px" class="description">
         <h3>dynamic example</h3>
@@ -141,11 +141,11 @@ and the type discriminator property is called <em>type</em>.</p>
 <p><strong>mongomat</strong></p>
 <p>An admin ui for mongodb 
 This is an example of the dynamic resources approach. Stores and schemas can be created and modified at runtime.
-<a title="null"href="/mongomat.html">more..</a></p>
+<a title="null"href="/oss/cms4apps-site/target/mongomat.html">more..</a></p>
 <p><strong>cms4apps</strong></p>
 <p>A cms that supports different deployment scenarios: Github pages, mongodb or any 
 dynamically typed store with a restful interface.
-<a title="null"href="/cms4apps.html">more..</a></p>
+<a title="null"href="/oss/cms4apps-site/target/cms4apps.html">more..</a></p>
 <p><strong>mongoose admin example</strong></p>
 <p>An example of how to create an admin ui for <a title="null"href="http://mongoosejs.com/">mongoose</a> (<a title="null"href="http://github.com/stemey/mongoose-administration-example">More</a>).
 This is an example of the static resources approach. All stores and schemas are defined externally and do not
@@ -170,7 +170,7 @@ Hence it is possible to manage cms content and RDBMS data in the same ui.</p>
     <h3 id="subnav_2_0">3.1 supported stores</h3>
 <div class=" sections.2.blocks.0.blocks.0">
     <h4 id="file">file</h4>
-<p>A file system is supported via the node server <a title="null"href="asd.html">asd</a>.
+<p>A file system is supported via the node server <a title="null"href="/oss/cms4apps-site/targetasd.html">asd</a>.
 The id property is the path and is changeable. The data is cached in the client. 
 Queries are executed on the cached data. The store supports tree functionailty via
 the <code>gform-app/util/tree/PathObjectStoreModel</code>. Folders are also entities in this store.</p>
@@ -355,11 +355,11 @@ visible after saving an updated entity.</p>
 the entity is reloaded to reflect all changes.</p>
 <h4 id="query-entities">Query entities</h4>
 <p>This is the function that needs the most work when connecting to a new data store. The function is <code>store.query(query,options)</code>.
-See documentation on parameter <a title="null"href="dojotoolkit.html">here</a>. The dojo store abstraction is not perfect in this regard. Usually
+See documentation on parameter <a title="null"href="/oss/cms4apps-site/targetdojotoolkit.html">here</a>. The dojo store abstraction is not perfect in this regard. Usually
 there are two kinds of queries that the store implementor needs to take into consideration. One is issued by <code>dijit/FilteringSelet</code>
 and the other by <code>gridx/Grid</code>. <strong>TODO</strong>: more on implementing your own store </p>
 <h4 id="tree">tree</h4>
-<p>A store can contain a tree of entities (See <a title="null"href="dojotoolkit.html">here</a>). There are two ways to implement this behavior in gform-app.
+<p>A store can contain a tree of entities (See <a title="null"href="/oss/cms4apps-site/targetdojotoolkit.html">here</a>). There are two ways to implement this behavior in gform-app.
 Either all entities except the root have a parent identified by its id. Then the store needs to provide a <code>parentProperty</code>. Or the id of the
 ntities is also their path in the tree.</p>
 
@@ -421,7 +421,7 @@ available in gform. These can be composed filtered and extended to create
 the ideal meta schema.</p>
 
 </div><div class=" center-block caption-fix">
-    <img src="/assets/images/gform-app/schema-editor.png" class="center-block img-responsive" alt="" />
+    <img src="/oss/cms4apps-site/target/assets/images/gform-app/schema-editor.png" class="center-block img-responsive" alt="" />
     <div class="caption">
         <p >The template editor in cms4apps contains an editor for the content type.
 On the left is the tree of properties and embedded types. On the right are the details 
@@ -444,7 +444,7 @@ usually consists of the following:</p>
 <p>Views can be switched via the view menu in the toolbar.</p>
 
 </div><div class=" center-block caption-fix">
-    <img src="/assets/images/view.png" class="center-block img-responsive" alt="" />
+    <img src="/oss/cms4apps-site/target/assets/images/view.png" class="center-block img-responsive" alt="" />
     <div class="caption">
         <p >The page view which of cms4apps.</p>
     </div>
@@ -576,7 +576,7 @@ An example is the administration for <a href="http://www.mongooosejs.com" target
 <h5 id="dynamic-resourcefactory">Dynamic Resourcefactory</h5>
 <p>A dynamic ResourceFactory loads stores and schemas like the static alternative. 
 But it is possible to modify stores and schemas at runtime. Typically this is used
-to create clients for dynamically typed server-side stores. An example is <a title="null"href="/mongomat.html">mongomat</a></p>
+to create clients for dynamically typed server-side stores. An example is <a title="null"href="/oss/cms4apps-site/target/mongomat.html">mongomat</a></p>
 
 </div></div><div class="">
     <h3 id="subnav_4_3">5.4 configuration</h3>
@@ -838,9 +838,9 @@ grunt build
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/jquery/dist/jquery.min.js"></script>
+    <script src="/oss/cms4apps-site/target/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/oss/cms4apps-site/target/bootstrap/dist/js/bootstrap.js"></script>
     <script src="gform-app/controller/mock.js"></script>
     <script>$('body').scrollspy({ target: '#navigation' })</script>
   </body>
